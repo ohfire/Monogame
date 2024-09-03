@@ -4,12 +4,10 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Monogame
 {
-    public class Player
+    public class Player : BaseClass
     {
-        Vector2 position = new Vector2(400,240);
-        Texture2D texture;
-        public Player(Texture2D texture){
-            this.texture = texture;
+        public Player(Texture2D texture):  base(texture, new Vector2(400,240)){
+            color = Color.White;
         }
 
         public void Update(){
@@ -27,11 +25,6 @@ namespace Monogame
             if(kState.IsKeyDown(Keys.D)){
             position.X += 5;
             }
-        }
-
-        public void Draw(SpriteBatch spriteBatch){
-            Rectangle playerRectangle = new Rectangle((int)position.X, (int)position.Y,100,100);
-            spriteBatch.Draw(texture, playerRectangle, Color.AliceBlue);
         }
     }
 }
